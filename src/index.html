@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function convert() {
+            var fromCurrency = document.getElementById('from-currency').value;
+            var amount = document.getElementById('amount').value;
+            var result = 0;
+
+            switch (fromCurrency) {
+                case 'AUD': {
+                    result = 16 * amount;
+                    break;
+                }
+                case 'USD': {
+                    result = 23 * amount;
+                    break;
+                }
+                case 'EUR': {
+                    result = 26 * amount;
+                    break;
+                }
+            }
+
+            var resultVnd = document.getElementById('result-vnd');
+            resultVnd.innerHTML = result.toString();
+        }
+    </script>
+</head>
+<body>
+<form>
+    <h2>Ứng dụng chuyển đổi ngoại tệ sang VND</h2>
+    Amount: <input id="amount" name="amount" type="text">
+    From Currency:
+    <select id="from-currency" name="from-currency">
+        <option value="AUD" selected>AUD</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+    </select>
+
+    <button type="button" onclick="convert()">Convert</button>
+
+    Result: <label id="result-vnd"></label> VND
+
+</form>
+
+</body>
+</html>
